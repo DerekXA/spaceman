@@ -86,6 +86,8 @@ def spaceman(secret_word):
       secret_word (string): the secret word to guess.
     '''
     letters_guessed = []
+    guesses_left = 7
+    while guesses_left > 0:
 
     #TODO: show the player information about the game according to the project spec
     print("welcome to the game you have you have 7 tires")
