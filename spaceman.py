@@ -55,7 +55,7 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 
-def is_guess_in_word(guess, secret_word):
+def is_guess_in_word(user_guess, secret_word):
     '''
     A function to check if the guessed letter is in the secret word
     Args:
@@ -66,7 +66,15 @@ def is_guess_in_word(guess, secret_word):
     '''
     #TODO: check if the letter guess is in the secret word
 
-    
+    guessed_correctly = False
+    for letter in secret_word:
+        if user_guess == letter:
+            print('thats right!!!')
+            guessed_correctly = True
+            return True
+        if guessed_correctly == False:
+            print('thats wrong')
+            return False
 
 
 
