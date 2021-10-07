@@ -112,7 +112,10 @@ def spaceman(secret_word):
         if guesses_left == 0:
             print ('you lost')
         if user_guess==secret_word:
-            print('you win')
+           print('you win')
+        break
+        
+            
             
 
 
