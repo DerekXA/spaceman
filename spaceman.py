@@ -25,7 +25,13 @@ def is_word_guessed(secret_word, letters_guessed):
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
     #print letters used!!!!
-
+    for letters in secret_word:
+        if letters not in letters_guessed:
+            return False 
+    return True
+            
+        
+    
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
     
 
@@ -65,7 +71,9 @@ def is_guess_in_word(user_guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
     '''
     #TODO: check if the letter guess is in the secret word
-
+        
+    
+    
     guessed_correctly = False
     for letter in secret_word:
         if user_guess == letter:
@@ -97,18 +105,27 @@ def spaceman(secret_word):
         user_guess = input("enter guess:")
         if len(user_guess) > 1:
             print('only 1 leter at a time') 
-            return   
+            return  
+        if user_guess in letters_guessed:
+            print('you already guessed that!')
+            
+         
         #TODO: Check if the guessed letter is in the secret or not and give the player feedback
-        is_guess_in_word(user_guess, secret_word)
         guessed_right = is_guess_in_word(user_guess, secret_word)
         if guessed_right == False:
             guesses_left -= 1
         letters_guessed.append(user_guess)
         print(f'you have {guesses_left} guesses left')
+        
         #TODO: show the guessed word so far
         get_guessed_word(secret_word, letters_guessed)
         print(get_guessed_word(secret_word, letters_guessed))
         #TODO: check if the game has been won or lost
+        is_word_guessed(secret_word, letters_guessed)
+        if is_word_guessed(secret_word, letters_guessed) == True:
+            print('you win!')
+            break
+        
         # if guesses_left == 0:
         #     print ('you lost')
         # if user_guess==secret_word:
